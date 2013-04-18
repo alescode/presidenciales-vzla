@@ -3,7 +3,6 @@
 ## Descripción del formato de los datos
 Los datos se manejarán en formato CSV, con las siguientes columnas:
 
-- `id`: identificador de la tabla en la BD del CNE, aparece repetido porque en los datos brutos hay una fila por resultado electoral, y en los nuevos datos hay una fila por candidato.
 - `state_id`: identificador del *estado*
 - `county_id`: identificador del *municipio*
 - `township_id`: identificador de la *parroquia*
