@@ -18,7 +18,7 @@ with open(filename, 'rb') as csvfile:
 
         elif cnt >0:
             cs = ''
-            for campo in [0, 2, 4, 8, 10, 9]:
+            for campo in [0, 2, 4, 8, 10, 9, 10]:
                 cs = cs + item[campo]+','
             for candidato in range(11,18):
                 fout.write(cs+candids[candidato-11]+','+item[candidato]+'\n')
