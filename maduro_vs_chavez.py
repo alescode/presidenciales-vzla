@@ -62,7 +62,7 @@ with open('raw/data_2013_raw.csv', 'rb') as csvfile:
             mesas[id_mesa].url13 = fila[22]
             mesas[id_mesa].url12 = fila[22].replace('2013', '2012')
 
-votos_chavez, votos_maduro, mesas_afectadas = 0, 0, 0
+votos_chavez, votos_maduro, votos_capriles12, votos_capriles13, mesas_afectadas = 0, 0, 0, 0, 0
 for id_mesa, resultados in mesas.items():
     total12 = resultados.chavez + resultados.capriles12
     total13 = resultados.maduro + resultados.capriles13
@@ -72,9 +72,13 @@ for id_mesa, resultados in mesas.items():
        distancia < (DIF_PARTICIPACION/100.0)):
         votos_chavez += resultados.chavez
         votos_maduro += resultados.maduro
+        votos_capriles12 += resultados.capriles12
+        votos_capriles13 += resultados.capriles13
         mesas_afectadas += 1
         print id_mesa, resultados, resultados.url13
 print ('\nHubo %d mesas donde Maduro tuvo %d%% mas votos que Chavez, solo contando centros en donde los votos por ambas opciones variaron en menos del %d%%.'
 % (mesas_afectadas, DIF_CON_CHAVEZ, DIF_PARTICIPACION))
 print ('\nEn estas mesas hubo %d votos para Maduro en 2013 y %d votos para Chavez en 2012, diferencia: %d'
 % (votos_maduro, votos_chavez, votos_maduro - votos_chavez))
+print ('\nEn estas mesas hubo %d votos para Capriles en 2013 y %d votos para Capriles en 2012, diferencia: %d'
+% (votos_capriles13, votos_capriles12, votos_capriles13 - votos_capriles12))
